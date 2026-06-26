@@ -1,22 +1,30 @@
-# 定日镜场标定与跟踪误差预测数据集
+# 定日镜场标定与跟踪误差预测数据集 / Heliostat Field Calibration and Tracking Error Prediction Dataset
 
-## 概述
+> **中文说明见 [README_ZH.md](README_ZH.md) | English version: [README_EN.md](README_EN.md)**
 
-本仓库包含 Jülich 太阳能研究中心（DLR）公开采集的定日镜场跟踪误差数据集，以及扩展的塔测数据。数据用于定日镜场的冷启动标定、跟踪误差建模与图神经网络（GNN）预测研究。
+## 概述 / Overview
 
-## 数据来源
+本仓库包含德国尤利希太阳能研究中心（DLR）采集的定日镜场跟踪误差数据集，以及扩展的塔测数据。数据用于定日镜场冷启动标定、跟踪误差建模与图神经网络（GNN）预测研究。
 
-- **采集地点**：德国尤利希太阳能研究中心（DLR Solar Center, Jülich, Germany）
-- **坐标**：纬度 50.9136°N，经度 6.3875°E，海拔约 88.7m
-- **塔高**：约 123m（中央接收塔）
-- **采集时间**：2022年3月至2022年7月
-- **原始文献**：Päumann et al., "High-Accuracy Data-Driven Heliostat Calibration Using a Single-Camera System," *Solar Energy*, 2023.
+This repository contains the heliostat field tracking error dataset collected at the Jülich Solar Center (DLR), along with extended tower measurement data. The data is used for cold-start calibration, tracking error modeling, and Graph Neural Network (GNN) prediction of heliostat fields.
 
-## 数据集结构
+## 数据来源 / Data Source
+
+| | |
+|---|---|
+| **采集地点** | 德国尤利希太阳能研究中心（DLR Solar Center, Jülich, Germany） |
+| **Coordinates** | Latitude 50.9136°N, Longitude 6.3875°E, Altitude ~88.7m |
+| **塔高** | 约 123m（中央接收塔） |
+| **Tower Height** | ~123m (central receiver tower) |
+| **采集时间** | 2022年3月至2022年7月 |
+| **Collection Period** | March 2022 – July 2022 |
+| **原始文献** | Päumann et al., "High-Accuracy Data-Driven Heliostat Calibration Using a Single-Camera System," *Solar Energy*, 2023. |
+
+## 数据集结构 / Dataset Structure
 
 ```
 data/
-├── paint_data/                  # 定日镜跟踪误差数据集（来自 Pargmann 论文）
+├── paint_data/                  # 定日镜跟踪误差数据集 / Heliostat tracking error dataset
 │   ├── <HELIOSTAT_ID>/          # 每个子目录对应一个定日镜
 │   │   └── <HELIOSTAT_ID>_properties.json  # 定日镜物理属性与运动学参数
 │   ├── tower/
@@ -27,41 +35,41 @@ data/
 │   ├── paint_dataset_with_weather.csv # 含气象特征的跟踪误差数据（6,057条记录）
 │   └── timestamps.json               # 样本时间戳映射（24,526个条目）
 │
-└── pdata/                     # 扩展定日镜属性数据集（来自另一批次采集）
+└── pdata/                     # 扩展定日镜属性数据集
     ├── <HELIOSTAT_ID>/
     │   └── <HELIOSTAT_ID>_properties.json
     └── tower/
         └── tower_measurements.json
 ```
 
-## 字段说明
+## 字段说明 / Field Descriptions
 
 ### paint_dataset.csv / paint_dataset_with_weather.csv
 
-| 字段 | 说明 | 单位 |
-|------|------|------|
+| 字段 / Field | 说明 / Description | 单位 / Unit |
+|---|---|---|
 | `heliostat_id` | 定日镜编号（如 AA31, BE36） | - |
 | `timestamp` | 采样时间戳（UTC） | ISO 8601 |
 | `sample_id` | 样本唯一标识 | - |
-| `sun_elevation` | 太阳高度角 | 度 |
-| `sun_azimuth` | 太阳方位角 | 度 |
+| `sun_elevation` | 太阳高度角 | 度 / degrees |
+| `sun_azimuth` | 太阳方位角 | 度 / degrees |
 | `axis_1_motor_position` | 轴1电机位置（方位轴） | counts |
 | `axis_2_motor_position` | 轴2电机位置（俯仰轴） | counts |
 | `target_name` | 目标塔名称 | - |
-| `heliostat_lat` | 定日镜纬度 | 度 |
-| `heliostat_lon` | 定日镜经度 | 度 |
-| `heliostat_alt` | 定日镜海拔 | 米 |
-| `focal_spot_lat` | 焦点纬度 | 度 |
-| `focal_spot_lon` | 焦点经度 | 度 |
-| `focal_spot_alt` | 焦点海拔 | 米 |
-| `target_center_lat` | 靶心纬度 | 度 |
-| `target_center_lon` | 靶心经度 | 度 |
-| `target_center_alt` | 靶心海拔 | 米 |
-| `tracking_error_lat` | 纬度方向跟踪误差 | 度 |
-| `tracking_error_lon` | 经度方向跟踪误差 | 度 |
-| `tracking_error_alt` | 海拔方向跟踪误差 | 米 |
+| `heliostat_lat` | 定日镜纬度 | 度 / degrees |
+| `heliostat_lon` | 定日镜经度 | 度 / degrees |
+| `heliostat_alt` | 定日镜海拔 | 米 / meters |
+| `focal_spot_lat` | 焦点纬度 | 度 / degrees |
+| `focal_spot_lon` | 焦点经度 | 度 / degrees |
+| `focal_spot_alt` | 焦点海拔 | 米 / meters |
+| `target_center_lat` | 靶心纬度 | 度 / degrees |
+| `target_center_lon` | 靶心经度 | 度 / degrees |
+| `target_center_alt` | 靶心海拔 | 米 / meters |
+| `tracking_error_lat` | 纬度方向跟踪误差 | 度 / degrees |
+| `tracking_error_lon` | 经度方向跟踪误差 | 度 / degrees |
+| `tracking_error_alt` | 海拔方向跟踪误差 | 米 / meters |
 | `wind_speed` | 风速 | m/s |
-| `wind_direction` | 风向 | 度 |
+| `wind_direction` | 风向 | 度 / degrees |
 | `dni` | 直接法向辐照度 | W/m² |
 | `temperature` | 温度 | °C |
 | `humidity` | 湿度 | % |
@@ -83,27 +91,39 @@ data/
 
 气象数据，HDF5 格式，包含 Jülich 地区 2022年3月的气象观测记录。
 
-## 数据统计
+## 数据统计 / Data Statistics
 
-- **定日镜数量**：102+ 个（覆盖 AC、AB、AK、AA、BA、BE、BF、BG、BH、BI、BJ、BK、BL 等系列）
-- **总记录数**：24,783 条跟踪测量记录
-- **含气象数据记录**：6,057 条
-- **时间跨度**：2022年3月 - 2022年7月
+| | |
+|---|---|
+| **定日镜数量** | 102+ 个（覆盖 AC、AB、AK、AA、BA、BE、BF、BG、BH、BI、BJ、BK、BL 等系列） |
+| **Total Records** | 24,783 tracking measurement records |
+| **含气象数据记录** | 6,057 条 |
+| **Records with weather data** | 6,057 |
+| **时间跨度** | 2022年3月 - 2022年7月 |
+| **Time span** | March 2022 – July 2022 |
 
-## 数据用途
+## 数据用途 / Data Applications
 
 本数据集适用于：
+
 1. **定日镜冷启动标定**：无需精确初始参数即可估计定日镜运动学参数
 2. **跟踪误差建模**：学习定日镜跟踪误差与太阳位置、风速等因素的关系
 3. **图神经网络预测**：利用定日镜间的空间相关性进行全局误差预测
 4. **气象耦合分析**：分析风、温度等环境因素对跟踪精度的影响
 
-## 使用许可
+This dataset is suitable for:
 
-数据集来源于学术研究的公开数据，供学术研究与非商业用途使用。引用时请参考原始论文：
+1. **Heliostat cold-start calibration**: Estimate heliostat kinematic parameters without precise initial values
+2. **Tracking error modeling**: Learn the relationship between tracking errors and sun position, wind speed, etc.
+3. **GNN prediction**: Leverage spatial correlations among heliostats for global error prediction
+4. **Meteorological coupling analysis**: Analyze the impact of wind, temperature, and other environmental factors on tracking accuracy
+
+## 引用 / Citation
+
+引用时请参考原始论文：
 
 > Päumann, M., et al. "High-Accuracy Data-Driven Heliostat Calibration Using a Single-Camera System." *Solar Energy*, 2023.
 
-## 版本历史
+## 版本历史 / Version History
 
-- **v1.0** (2026-06-26): 初始发布，包含 paint_data 和 pdata 两个数据集
+- **v1.0** (2026-06-26): 初始发布，包含 paint_data 和 pdata 两个数据集 / Initial release, including paint_data and pdata datasets
