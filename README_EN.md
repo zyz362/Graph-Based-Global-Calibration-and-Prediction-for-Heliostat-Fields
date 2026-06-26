@@ -9,7 +9,6 @@ This repository contains the heliostat field tracking error dataset collected at
 - **Collection Site**: DLR Solar Center, Jülich, Germany
 - **Coordinates**: Latitude 50.9136°N, Longitude 6.3875°E, Altitude ~88.7m
 - **Tower Height**: ~123m (central receiver tower)
-- **Collection Period**: March 2022 – July 2022
 - **Original Reference**: Päumann et al., "High-Accuracy Data-Driven Heliostat Calibration Using a Single-Camera System," *Solar Energy*, 2023.
 
 ## Dataset Structure
@@ -25,7 +24,7 @@ data/
 │   │   └── 2022-03-juelich-weather.h5    # Weather data (HDF5 format)
 │   ├── paint_dataset.csv             # Full tracking error data (24,783 records)
 │   ├── paint_dataset_with_weather.csv # Tracking error with weather features (6,057 records)
-│   └── timestamps.json               # Sample timestamp mapping (24,526 entries)
+│   
 │
 └── pdata/                     # Extended heliostat property dataset
     ├── <HELIOSTAT_ID>/
@@ -88,7 +87,6 @@ Weather data in HDF5 format, containing meteorological observations for Jülich 
 - **Number of heliostats**: 102+ (covering AC, AB, AK, AA, BA, BE, BF, BG, BH, BI, BJ, BK, BL series)
 - **Total records**: 24,783 tracking measurement records
 - **Records with weather data**: 6,057
-- **Time span**: March 2022 – July 2022
 
 ## Data Applications
 
