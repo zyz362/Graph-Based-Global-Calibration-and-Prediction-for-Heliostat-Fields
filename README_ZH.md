@@ -9,7 +9,6 @@
 - **采集地点**：德国尤利希太阳能研究中心（DLR Solar Center, Jülich, Germany）
 - **坐标**：纬度 50.9136°N，经度 6.3875°E，海拔约 88.7m
 - **塔高**：约 123m（中央接收塔）
-- **采集时间**：2022年3月至2022年7月
 - **原始文献**：Päumann et al., "High-Accuracy Data-Driven Heliostat Calibration Using a Single-Camera System," *Solar Energy*, 2023.
 
 ## 数据集结构
@@ -25,7 +24,7 @@ data/
 │   │   └── 2022-03-juelich-weather.h5    # 气象数据（HDF5格式）
 │   ├── paint_dataset.csv             # 完整跟踪误差数据（24,783条记录）
 │   ├── paint_dataset_with_weather.csv # 含气象特征的跟踪误差数据（6,057条记录）
-│   └── timestamps.json               # 样本时间戳映射（24,526个条目）
+│   
 │
 └── pdata/                     # 扩展定日镜属性数据集
     ├── <HELIOSTAT_ID>/
@@ -88,7 +87,6 @@ data/
 - **定日镜数量**：102+ 个（覆盖 AC、AB、AK、AA、BA、BE、BF、BG、BH、BI、BJ、BK、BL 等系列）
 - **总记录数**：24,783 条跟踪测量记录
 - **含气象数据记录**：6,057 条
-- **时间跨度**：2022年3月 - 2022年7月
 
 ## 数据用途
 
